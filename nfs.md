@@ -11,12 +11,14 @@ NFS stands for "Network File System" and allows a system to share directories an
 7. SSH into the remote host (if SSH private key is found in the share)
 8. Run the executable on the remote host
 
-## NFS-Common
+## Enumeration (with NFS-Common)
+### NFS-Common
 NFS-Common includes programs such as: lockd, statd, showmount, nfsstat, gssd, idmapd and mount.nfs.
 
 ### Listing NFS Shares
 showmount -e [IP]  
 
+## Exploitation
 ### Create a mount point
 mkdir [MOUNT POINT]
 
