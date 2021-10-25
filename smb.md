@@ -16,8 +16,19 @@ enum4linux [OPTIONS] [IP]
 - -A : all of the above (full basic enumeration)
 
 ## Exploitation
-### SMBClient  
+### [SMBClient](http://www.samba.gr.jp/project/translation/3.6/htmldocs/manpages-3/smbclient.1.html)
 smbclient //[IP]/[SHARE] -U [NAME] -p [PORT]  
 
 - -U [name] : to specify the user
 - -p [port] : to specify the port
+
+#### Basic commands
+- ls : List files and directories
+- cd : Change to a specified directory
+- more : Examine the contents of a text file
+- pwd : Show current directory
+- get : Retrieve a file
+- mget : Retrieve multiple files
+- put : Upload a file
+- mput : Upload multiple files
+- exit : Close the session
