@@ -1,15 +1,15 @@
 # CheatCheet
 
 ## Ports
-20, 21 / FTP  
-22 / SSH  
-23 / Telnet  
-25 / SMTP  
-53 / DNS  
-80 / HTTP  
-110 / POP3  
-443 / HTTPS  
-139, 445 / SMB  
+- 20, 21 / FTP
+- 22 / SSH
+- 23 / Telnet
+- 25 / SMTP
+- 53 / DNS
+- 80 / HTTP
+- 110 / POP3
+- 443 / HTTPS
+- 139, 445 / SMB
 
 ## Tools
 ### MSFVenom
