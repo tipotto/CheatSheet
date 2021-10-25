@@ -29,8 +29,8 @@
 - -oA : Save results in three major formats
 - -oN : Save results in a normal format
 - -oG : Save results in a grepable format
-- -T : The timing / speed your scan is run at (Nmap offers five levels. Higher speeds are noisier, and can incur errors! e.g. -T5)
-- -p : Scans a specific port or range of ports
+- -T : The timing / speed your scan is run at (e.g. -T5 / Nmap offers five levels. Higher speeds are noisier, and can incur errors)
+- -p : Scans a specific port or range of ports (e.g. -p 80 / -p 1000-1500)
 - -p- : Scans all ports
 - --script : Activate a script from the nmap scripting library (e.g. --script=vuln)
 
