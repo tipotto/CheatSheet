@@ -7,8 +7,8 @@ NFS stands for "Network File System" and allows a system to share directories an
 #### Mounting NFS shares
 sudo mount -t nfs [IP]:[SHARE] [MOUNT DIR] -nolock
 
--t : Type of device to mount  
-IP : The IP Address of the NFS server  
-SHARE	: The name of the share in the remote host  
-MOUNT DIR: The local directory to mount  
--nolock	: Specifies not to use NLM locking 
+- -t : Type of device to mount
+- IP : The IP Address of the NFS server
+- SHARE	: The name of the share in the remote host
+- MOUNT DIR: The local directory to mount
+- -nolock	: Specifies not to use NLM locking
