@@ -1,4 +1,4 @@
-# MySQL
+# MySQL / Port 3306
 MySQL is a relational database management system (RDBMS) based on Structured Query Language (SQL)
 
 ## Workflow
@@ -13,6 +13,12 @@ Provided that necessary credentials such as username and password is already fou
 ## Advance preparation
 ```
 export rhost=[RHOST IP]
+```
+
+## Port scan
+Check if port 3306 is open
+```
+sudo nmap -sS -sV -O $rhost
 ```
 
 ## Enumeration
@@ -49,7 +55,13 @@ Obtain users' password hashes on the MySQL server
 use auxiliary/scanner/mysql/mysql_hashdump
 ```
 
-## Access MySQL server
+### Crack password hash
+```
+echo 'carl:*xxxxxxxxxxxxxxxxxxxxxxxxxxxxx' | tee hash.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+```
+
+### Access MySQL server with SSH
 ```
 mysql -h $rhost -u [USERNAME] -p
 ```
