@@ -5,6 +5,8 @@ SMB - Server Message Block Protocol - is a client-server communication protocol 
 1. Port scan with nmap
 2. Enumerate with Enum4Linux
 3. Access the vulnarable share with SMBClient  
+4. Investigate files and directories to see if it is accessible to the host machine in some ways
+5. SSH into the host machine (if private key is found)
 
 ### Port scan with nmap
 ポート139, 445が開いていることを確認する。
@@ -53,6 +55,12 @@ smbclient //${rhost}/[SHARE] -U [NAME] -p $rport
 - put : Upload a file
 - mput : Upload multiple files
 - exit : Close the session
+
+### SSH into the remote host
+```
+chmod 600 [PRIVATE KEY]
+ssh -i [PRIVATE KEY] [USERNAME]@${rhost}
+```
 
 ## Reference
 
