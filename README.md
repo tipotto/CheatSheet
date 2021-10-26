@@ -13,6 +13,9 @@
 
 ## Tools
 ### Nmap
+```
+nmap [OPTIONS] [IP]
+```
 
 - -sT : TCP Connect Scan
 - -sS : SYN Scan
@@ -34,8 +37,20 @@
 - -p- : Scans all ports
 - --script : Activate a script from the nmap scripting library (e.g. --script=vuln)
 
+### John the Ripper
+```
+john --format=[FORMAT] --wordlist=[WORDLIST PATH] [HASH FILE PATH]
+```
+
+#### Search format
+```
+john --list=formats | grep -iF [FORMAT]
+```
+
 ### MSFVenom
-msfvenom -p [PAYLOAD] lhost=[LOCAL IP] lport=[LOCAL PORT] R  
+```
+msfvenom -p [PAYLOAD] lhost=[LOCAL IP] lport=[LOCAL PORT] R
+```
 
 - -p : payload
 - lhost : our local host IP address (this is your machine's IP address)
@@ -44,8 +59,9 @@ msfvenom -p [PAYLOAD] lhost=[LOCAL IP] lport=[LOCAL PORT] R
 
 ### Hydra
 Hydra is a very fast online password cracking tool, which can perform rapid dictionary attacks against more than 50 Protocols, including Telnet, RDP, SSH, FTP, HTTP, HTTPS, SMB, several databases and much more.   
-
-hydra -t [NUM OF CONNS] -l [USER] -P [WORDLIST] -vV [IP] [PROTOCOL]  
+```
+hydra -t [NUM OF CONNS] -l [USER] -P [WORDLIST] -vV [IP] [PROTOCOL]
+```
 
 - -t : Number of parallel connections per target
 - -l : Username
