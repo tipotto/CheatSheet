@@ -13,12 +13,18 @@ SMB - Server Message Block Protocol - is a client-server communication protocol 
 - Session Checkセクションで<strong>Server xxx allows sessions using username '', password ''</strong>と表示されている場合は、匿名ログインが可能。
 - Share Enumerationセクションで<strong>Mapping: OK, Listing: OK</strong>と表示されている場合、そのshareにSMBClientでアクセス可能。
 
+## Advance preparation
+```
+export rhost=[RHOST IP]
+export rport=[RHOST PORT]
+```
 
 ## Enumeration
 ### Enum4Linux
 Enum4linux is a tool used to enumerate SMB shares on both Windows and Linux systems. 
-
-enum4linux [OPTIONS] [IP]
+```
+enum4linux [OPTIONS] $rhost
+```
 
 - -U : get userlist
 - -M : get machine list
@@ -30,7 +36,9 @@ enum4linux [OPTIONS] [IP]
 
 ## Exploitation
 ### [SMBClient](http://www.samba.gr.jp/project/translation/3.6/htmldocs/manpages-3/smbclient.1.html)
-smbclient //[IP]/[SHARE] -U [NAME] -p [PORT]  
+```
+smbclient //${rhost}/[SHARE] -U [NAME] -p $rport  
+```
 
 - -U [name] : to specify the user
 - -p [port] : to specify the port
