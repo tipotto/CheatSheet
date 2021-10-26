@@ -1,4 +1,4 @@
-# CheatCheet
+# CheatSheet
 
 ## Ports
 - 20, 21 / FTP
