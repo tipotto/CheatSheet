@@ -16,15 +16,6 @@
 ## Tools
 ### [Nmap](nmap.md)
 
-### John the Ripper
-```
-john --format=[FORMAT] --wordlist=[WORDLIST PATH] [HASH FILE PATH]
-```
-
-#### Search format
-```
-john --list=formats | grep -iF [FORMAT]
-```
 
 ### MSFVenom
 ```
@@ -35,6 +26,19 @@ msfvenom -p [PAYLOAD] lhost=[LOCAL IP] lport=[LOCAL PORT] R
 - lhost : our local host IP address (this is your machine's IP address)
 - lport : the port to listen on (this is the port on your machine)
 - R : export the payload in raw format
+
+
+### [Gobuster](https://github.com/OJ/gobuster)
+```
+gobuster dir -u [URL] -w [WORDLIST PATH] -t [NUM OF THREADS] -x [EXTENSIONS] -q
+```
+
+- -u : The target URL
+- -w : Path to the wordlist
+- -t : Number of concurrent threads (default 10)
+- -x : File extension(s) to search for
+- -q : Don't print the banner and other noise
+
 
 ### Hydra
 Hydra is a very fast online password cracking tool, which can perform rapid dictionary attacks against more than 50 Protocols, including Telnet, RDP, SSH, FTP, HTTP, HTTPS, SMB, several databases and much more.   
@@ -47,6 +51,22 @@ hydra -t [NUM OF CONNS] -l [USER] -P [WORDLIST] -vV [IP] [PROTOCOL]
 - -P : Wordlist path
 - -vV : Sets verbose mode to very verbose, shows the login+pass combination for each attempt
 
+
+### John the Ripper
+```
+john --format=[FORMAT] --wordlist=[WORDLIST PATH] [HASH FILE PATH]
+```
+
+#### Search format
+```
+john --list=formats | grep -iF [FORMAT]
+```
+
+#### ssh2john (*1)
+```
+python /usr/share/john/ssh2john.py [KEY FILE PATH] > passphrase.txt
+```
+
 ## Exploit by protocol
 - [SSH](ssh.md)
 - [SMB](smb.md)
@@ -55,6 +75,9 @@ hydra -t [NUM OF CONNS] -l [USER] -P [WORDLIST] -vV [IP] [PROTOCOL]
 - [FTP](ftp.md)
 - [SMTP](smtp.md)
 - [MySQL](mysql.md)
+
+## Memo
+*1 python3で実行した場合、エラーが発生する。
 
 ## Reference
 
