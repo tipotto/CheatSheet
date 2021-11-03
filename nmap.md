@@ -4,6 +4,12 @@
 nmap [OPTIONS] [IP]
 ```
 
+Primary Usage :
+```
+nmap -sV -vv -oN initial.nmap --script vuln [IP]
+```
+
+
 ## Options
 - -sT : TCP Connect Scan
 - -sS : SYN Scan
