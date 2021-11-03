@@ -67,6 +67,20 @@ john --list=formats | grep -iF [FORMAT]
 python /usr/share/john/ssh2john.py [KEY FILE PATH] > passphrase.txt
 ```
 
+### [Hashcat](https://hashcat.net/wiki/doku.php?id=example_hashes)
+```
+hashcat -m [HASH TYPE] -a [ATTACK MODE] [HASHFILE PATH] [WORDLIST PATH]
+```
+
+Attack Mode :  
+- 0 : 
+
+#### Hashid
+```
+hashid -m [HASH]
+```
+
+
 ## Exploit by protocol
 - [SSH](ssh.md)
 - [SMB](smb.md)
@@ -162,3 +176,9 @@ https://gtfobins.github.io/
 
 Linux - Privilege Escalation
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md#find-suid-binaries
+
+CrackStation  
+https://crackstation.net/
+
+Hash Analyzer  
+https://www.tunnelsup.com/hash-analyzer/
