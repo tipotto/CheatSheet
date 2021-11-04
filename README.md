@@ -67,6 +67,11 @@ john --list=formats | grep -iF [FORMAT]
 python /usr/share/john/ssh2john.py [KEY FILE PATH] > passphrase.txt
 ```
 
+#### zip2john
+```
+zip2john [KEY FILE PATH] > password.txt
+```
+
 ### [Hashcat](https://hashcat.net/wiki/doku.php?id=example_hashes)
 ```
 hashcat -m [HASH TYPE] -a [ATTACK MODE] [HASHFILE PATH] [WORDLIST PATH]
