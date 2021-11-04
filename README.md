@@ -77,9 +77,6 @@ zip2john [KEY FILE PATH] > password.txt
 hashcat -m [HASH TYPE] -a [ATTACK MODE] [HASHFILE PATH] [WORDLIST PATH]
 ```
 
-Attack Mode :  
-- 0 : 
-
 #### Hashid
 ```
 hashid -m [HASH]
