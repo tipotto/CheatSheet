@@ -16,17 +16,7 @@
 ## Tools
 ### [Nmap](nmap.md)
 
-
-### MSFVenom
-```
-msfvenom -p [PAYLOAD] lhost=[LOCAL IP] lport=[LOCAL PORT] R
-```
-
-- -p : payload
-- lhost : our local host IP address (this is your machine's IP address)
-- lport : the port to listen on (this is the port on your machine)
-- R : export the payload in raw format
-
+### [MSFVenom](msfvenom.md)
 
 ### [Gobuster](https://github.com/OJ/gobuster)
 ```
