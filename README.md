@@ -14,7 +14,7 @@
 - MySQL / 3306
 
 ## Tools
-- Rustscan
+- [Rustscan](rustscan.md)
 - [Nmap](nmap.md)
 - [MSFVenom](msfvenom.md)
 - [Gobuster](gobuster.md)
