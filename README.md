@@ -14,27 +14,12 @@
 - MySQL / 3306
 
 ## Tools
-### [Nmap](nmap.md)
-
-### [MSFVenom](msfvenom.md)
-
-### [Gobuster](gobuster.md)
-
-### [Hydra](hydra.md)
-
-### [John the Ripper](john.md)
-
-
-### [Hashcat](https://hashcat.net/wiki/doku.php?id=example_hashes)
-```
-hashcat -m [HASH TYPE] -a [ATTACK MODE] [HASHFILE PATH] [WORDLIST PATH]
-```
-
-#### Hashid
-```
-hashid -m [HASH]
-```
-
+- [Nmap](nmap.md)
+- [MSFVenom](msfvenom.md)
+- [Gobuster](gobuster.md)
+- [Hydra](hydra.md)
+- [John the Ripper](john.md)
+- [Hashcat](hashcat.md)
 
 ## Exploit by protocol
 - [SSH](ssh.md)
