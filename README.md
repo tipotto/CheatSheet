@@ -136,5 +136,5 @@ https://crackstation.net/
 Hash Analyzer  
 https://www.tunnelsup.com/hash-analyzer/
 
-Upgrading Simple Shells to Fully Interactive TTYs
+Upgrading Simple Shells to Fully Interactive TTYs  
 https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/
