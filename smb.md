@@ -24,7 +24,7 @@ sudo nmap -sS -sV -O $rhost
 ### Enum4Linux (*1)
 Enum4linux is a tool used to enumerate SMB shares on both Windows and Linux systems. 
 ```
-enum4linux [OPTIONS] $rhost
+enum4linux [OPTIONS] $rhost | tee [OUTPUT FILE]
 ```
 
 - -U : get userlist
