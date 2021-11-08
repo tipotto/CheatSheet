@@ -85,7 +85,7 @@ sudo LD_LIBRARY_PATH=/tmp [COMMAND]
 #### Memo
 LD_PRELOAD : プログラム（コマンド）実行の際に最初にロードする共有オブジェクトを指定する環境変数。  
 LD_LIBRARY_PATH : 最初に共有オブジェクトを検索しに行くディレクトリを指定する環境変数。  
-COMMAND : sudoで実行できるコマンド。
+COMMAND : sudoで実行できるコマンド。  
 setresuid() : Sets real and effective user IDs of the calling process
 
 ## コマンドの確認
