@@ -21,7 +21,7 @@ sudo nmap -sS -sV -O $rhost
 ```
 
 ## Enumeration
-### Enum4Linux (*1)
+### Enum4Linux (*1 *2)
 Enum4linux is a tool used to enumerate SMB shares on both Windows and Linux systems. 
 ```
 enum4linux [OPTIONS] $rhost | tee [OUTPUT FILE]
@@ -57,18 +57,16 @@ smbclient //${rhost}/[SHARE] -U [NAME] -p $rport
 
 All the commands are [here](http://www.samba.gr.jp/project/translation/3.6/htmldocs/manpages-3/smbclient.1.html).
 
-### SSH into the remote host (*2)
+### SSH into the remote host (*3)
 ```
 chmod 600 [PRIVATE KEY]
 ssh -i [PRIVATE KEY] [USERNAME]@${rhost}
 ```
 
 ## Memo
-*1
-- Session Checkセクションで<strong>Server xxx allows sessions using username '', password ''</strong>と表示されている場合は、匿名ログインが可能。
-- Share Enumerationセクションで<strong>Mapping: OK, Listing: OK</strong>と表示されている場合、そのshareにSMBClientでアクセス可能。
-
-*2 Private keyにOthersに対する権限が付与されている場合、SSHクライアントで拒否されるため、適切な権限を付与する必要がある。
+*1 Session Checkセクションで<strong>Server xxx allows sessions using username '', password ''</strong>と表示されている場合は、匿名ログインが可能。  
+*2 Share Enumerationセクションで<strong>Mapping: OK, Listing: OK</strong>と表示されている場合、そのshareにSMBClientでアクセス可能。  
+*3 Private keyにOthersに対する権限が付与されている場合、SSHクライアントで拒否されるため、適切な権限を付与する必要がある。
 
 ## Reference
 
