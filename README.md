@@ -105,13 +105,13 @@ https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands/
 Meterpreter Commands  
 https://www.offensive-security.com/metasploit-unleashed/meterpreter-basics/
 
-Reverse Shell Cheat Sheet
-https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
-
 GTFOBins  
 https://gtfobins.github.io/
 
-Linux - Privilege Escalation
+PayloadsAllTheThings / Reverse Shell Cheat Sheet
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
+
+PayloadsAllTheThings / Linux - Privilege Escalation
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md#find-suid-binaries
 
 CrackStation  
