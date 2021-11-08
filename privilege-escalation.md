@@ -52,10 +52,6 @@ void _init() {
 sudo LD_PRELOAD=/tmp/preload.so [COMMAND]
 ```
 
-##### Memo
-LD_PRELOAD : プログラム（コマンド）実行の際に最初にロードする共有オブジェクトを指定する環境変数。  
-COMMAND : sudoで実行できるコマンドを指定する。
-
 #### LD_LIBRARY_PATH が存在する場合
 1. プログラムが依存関係にある共有ライブラリを調べる。
 ```
@@ -86,7 +82,8 @@ void hijack() {
 sudo LD_LIBRARY_PATH=/tmp [COMMAND]
 ```
 
-##### Memo
+#### Memo
+LD_PRELOAD : プログラム（コマンド）実行の際に最初にロードする共有オブジェクトを指定する環境変数。  
 LD_LIBRARY_PATH : 最初に共有オブジェクトを検索しに行くディレクトリを指定する環境変数。  
 COMMAND : sudoで実行できるコマンド。
 
