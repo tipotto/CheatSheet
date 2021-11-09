@@ -1,4 +1,4 @@
-# Linux Privilege Escalation2
+# Linux Privilege Escalation
 
 ## 機密ファイルのパーミッション確認
 ### /etc/shadow（read 権限あり）
