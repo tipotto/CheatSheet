@@ -129,6 +129,8 @@ touch /home/user/--checkpoint-action=exec=[FILE]
 *1 touchコマンドの引数には絶対パスを渡さないと、--checkpoint=1, --checkpoint-action=exec=[FILE] がコマンドの引数と解釈されてエラーになる。
 
 ## SUID / SGID 実行ファイル
+実行対象となるプログラム（コマンド）は全て、SUID, SGIDのいずれかが付与されていることが前提。
+
 ### 既存の脆弱性の利用
 Exim <= 4.84-3（SUID / SGIDがセットされている必要あり。もし存在すれば [CVE-2016-1531](https://www.exploit-db.com/exploits/39535) を使う。）
 
