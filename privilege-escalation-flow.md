@@ -1,4 +1,4 @@
-# Linux Privilege Escalation
+# Linux Privilege Escalation Flow
 
 ## 実行フロー
 1. sudo -l の実行
