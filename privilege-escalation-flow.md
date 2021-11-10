@@ -67,16 +67,13 @@ strings [FILE]
 - ディレクトリに書き込み権限あり : スクリプトの置き換え  
 - ファイルに書き込み権限あり : スクリプトの書き換え
 
+※ 内部でワイルドカードが利用されている場合：[こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation.md#%E3%83%AF%E3%82%A4%E3%83%AB%E3%83%89%E3%82%AB%E3%83%BC%E3%83%891)
+
 #### 読み込まれている共有ライブラリの確認
 ・環境変数 LD_LIBRARY_PATH が利用できる場合 : [こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation.md#ld_library_path-%E3%81%8C%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88)
 
-・環境変数 LD_LIBRARY_PATH が利用できない場合  
+・環境変数 LD_LIBRARY_PATH が利用できない場合: [こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation.md#%E5%85%B1%E6%9C%89%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E5%88%A9%E7%94%A8)  
 読み込みエラーになっている共有ライブラリのうち、ディレクトリ、ファイルのいずれかに書き込み権限がないか確認。
-
-```
-ldd [FILE]
-strace [FILE] 2>&1 | grep -iE "open|access|no such file"
-```
 
 - ディレクトリに書き込み権限あり : スクリプトの置き換え  
 - ファイルに書き込み権限あり : スクリプトの書き換え
