@@ -61,8 +61,7 @@ cat [FILE]
 strings [FILE]
 ```
 
-指定方法がコマンド名（絶対パスでない）の場合 : [こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation2.md#%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0-path)
-<!-- 環境変数 PATHの追加は[こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation2.md#%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0-path) -->
+指定方法がコマンド名（絶対パスでない）の場合 : [こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation.md#%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0)
 
 指定方法が絶対パスの場合
 - ディレクトリに書き込み権限あり : スクリプトの置き換え  
@@ -89,10 +88,10 @@ strace [FILE] 2>&1 | grep -iE "open|access|no such file"
 - [ ] 内部で実行されているプログラム（コマンド）の指定方法はスクリプト名 or 絶対パス
 
 ・ディレクトリ、ファイルに書き込み権限がある場合  
-共有オブジェクトの利用は[こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation2.md#%E5%85%B1%E6%9C%89%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E5%88%A9%E7%94%A8)
+共有オブジェクトの利用は[こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation.md#%E5%85%B1%E6%9C%89%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E5%88%A9%E7%94%A8)
 
 ・内部で実行されているプログラム（コマンド）がコマンド名で指定されている場合  
-環境変数の利用は[こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation2.md#%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0)
+環境変数の利用は[こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation.md#%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0)
 
 <!-- <dl>
   <dt>ディレクトリ、ファイルに書き込み権限がある場合</dt>
@@ -106,7 +105,7 @@ strace [FILE] 2>&1 | grep -iE "open|access|no such file"
 参照は[こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation.md#%E3%82%B7%E3%82%A7%E3%83%AB%E3%81%AE%E4%BB%95%E6%A7%98-1)
 
 ## 7. Sudo のバージョン確認
-参照は[こちら]()
+参照は[こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation.md#%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%82%92%E7%A2%BA%E8%AA%8D)
 
 ## 8. 機密ファイルのパーミッション確認
 参照は[こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation.md#%E6%A9%9F%E5%AF%86%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E3%83%91%E3%83%BC%E3%83%9F%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E7%A2%BA%E8%AA%8D)
