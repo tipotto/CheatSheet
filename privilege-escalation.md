@@ -113,9 +113,14 @@ setresuid() : Sets real and effective user IDs of the calling process
 cat /etc/crontab
 ```
 
-#### ディレクトリ / ファイルの書き込み権限の確認
+#### ディレクトリの書き込み権限の確認
 ```
-ls -la [DIRECTORY / FILE]
+ls -la | grep -iF [DIRECTORY]
+```
+
+#### ファイルの書き込み権限の確認
+```
+ls -la [FILE]
 ```
 
 #### ファイルのフルパスの確認
