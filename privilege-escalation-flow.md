@@ -84,11 +84,13 @@ strings [FILE]
 - [ ] スクリプトは書き換え可能か（ファイルに書き込み権限はあるか）
 - [ ] 内部で実行されているプログラム（コマンド）の指定方法はスクリプト名 or 絶対パス
 
-・ディレクトリ、ファイルに書き込み権限がある場合  
+大部分は「4. Cron の確認」の「4-2. 指定方法が絶対パスの場合」を参照。
+
+<!-- ・ディレクトリ、ファイルに書き込み権限がある場合  
 共有オブジェクトの利用は[こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation.md#%E5%85%B1%E6%9C%89%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E5%88%A9%E7%94%A8)
 
 ・内部で実行されているプログラム（コマンド）がコマンド名で指定されている場合  
-環境変数の利用は[こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation.md#%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0)
+環境変数の利用は[こちら](https://github.com/tipotto/CheatSheet/blob/main/privilege-escalation.md#%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0) -->
 
 <!-- <dl>
   <dt>ディレクトリ、ファイルに書き込み権限がある場合</dt>
