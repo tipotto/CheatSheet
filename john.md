@@ -41,3 +41,10 @@ zip, 7z コマンドで作成した zip ファイルのパスワードハッシ�
 cat password.txt
 $pkzip2$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx$/pkzip2$
 ```
+
+## Potfile
+一度クラックされたパスワードはポットファイルに保存される。そのため、2回目に同じパスワードをクラックしようとしてもスキップされる。
+
+```
+nano ~/.john/john.pot
+```
