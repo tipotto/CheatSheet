@@ -3,16 +3,17 @@ Hydra is a very fast online password cracking tool, which can perform rapid dict
 
 ## Normal
 ```
-hydra -t [NUM OF CONNS] -l [USER] -P [WORDLIST] -vV [IP] [PROTOCOL]
+hydra -l [USER] -P [WORDLIST] -vV [IP] [PROTOCOL] -t [NUM OF CONNS]
 ```
 
-- -t : Number of parallel connections per target
 - -l : Username
 - -L : Userlist path
 - -p : Password
 - -P : Wordlist path
 - -s : Port
 - -f : Exit when a login/pass pair is found
+- -t : Number of parallel connections per target (default: 16)
+- -w : defines the max wait time in seconds for responses (default: 32)
 - -vV : Sets verbose mode to very verbose, shows the login+pass combination for each attempt
 
 ## Basic Authentication
