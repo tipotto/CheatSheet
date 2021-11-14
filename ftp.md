@@ -1,5 +1,9 @@
 # FTP
 File Transfer Protocol (FTP) is a protocol used to allow remote transfer of files over a network.  
+
+## Usage
+匿名ログインが可能な場合、ユーザー名に anonymous と入力しないと認証に失敗する（パスワードは必要なし）
+
 ```
 ftp [IP]
 ```
@@ -32,9 +36,6 @@ get [FTP FILE] [LOCAL LOCATION]
 ### cd
 ### put
 ### mput
-
-## Memo
-*1 匿名ログインが可能な場合、ユーザー名に anonymous と入力しないと認証に失敗する（パスワードは必要なし）
 
 ## Reference
 ftpコマンドについて詳しくまとめました 【Linuxコマンド集】  
