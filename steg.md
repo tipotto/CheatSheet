@@ -72,3 +72,16 @@ Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
 Image Size                      : 1200x1600
 Megapixels                      : 1.9
 ```
+
+## Reference
+Steganography - A list of useful tools and resources  
+https://0xrick.github.io/lists/stego/
+
+sec-tools  
+https://github.com/eugenekolo/sec-tools
+
+魔術師見習いのノート  
+https://pied-piper.net/note/note.cgi?23
+
+Forensics入門（CTF）  
+https://qiita.com/knqyf263/items/6ebf06e27be7c48aab2e
