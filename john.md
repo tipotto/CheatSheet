@@ -1,5 +1,7 @@
 # John the Ripper
+
 ## Usage
+明示的にフォーマットを指定しなくても、自動的に判断してくれる。  
 ```
 john --format=[FORMAT] --wordlist=[WORDLIST PATH] [HASH FILE PATH]
 ```
@@ -26,7 +28,7 @@ zip や 7z コマンドで作成した zip ファイルの場合、出力され�
 ```
 zip -e test.zip test.txt 
 zip2john test.zip | tee password.txt
-test.zip/test.txt:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:test.txt:test.zip::test.zip
+test.zip/test.txt:$pkzip2$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx$/pkzip2$:test.txt:test.zip::test.zip
 ```
 
 そのため、ファイル出力時にハッシュ部分だけを抽出する。（デリミタ : の2番目のフィールドの内容だけを抽出して出力）
@@ -34,6 +36,8 @@ test.zip/test.txt:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:test.tx
 zip2john test.zip | cut -d ":" -f 2 | tee password.txt
 ```
 
-## Memo
-*1 John the Ripper は明示的にフォーマットを指定しなくても、自動的に判断してくれる。  
-*2 zip, 7z コマンドで作成した zip ファイルのパスワードハッシュは、$pkzip2$ で始まり、$/pkzip2$ で終わる。
+zip, 7z コマンドで作成した zip ファイルのパスワードハッシュは、$pkzip2$ で始まり、$/pkzip2$ で終わる。
+```
+cat password.txt
+$pkzip2$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx$/pkzip2$
+```
