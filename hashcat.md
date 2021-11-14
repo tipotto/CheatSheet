@@ -15,27 +15,34 @@
 | ?a         | ?l?u?d?s と同じ   |                                  |
 | ?b         | 16進数            | 0x00 – 0xff                      |
 
-## 辞書式攻撃（Mode 0）
+## 攻撃方法
+### 辞書式攻撃（Mode 0）
 指定した辞書ファイルにある文字列を1つずつ試行する。
 ```
 hashcat -a 0 -m [HASH TYPE] [HASHFILE / HASH] [WORDLIST PATH]
 ```
 
-## ブルートフォース攻撃（Mode 3）
+### ブルートフォース攻撃（Mode 3）
 ```
 hashcat -a 3 -m [HASH TYPE] [HASHFILE / HASH]
 ```
 
-## マスク攻撃（Mode 3）
+### マスク攻撃（Mode 3）
 マスクで指定された文字形式、文字数で総当たりして試行する。（'?d?d?d?d' であれば、4文字の数字に絞って総当たりする。）
 ```
 hashcat -a 3 -m [HASH TYPE] [HASHFILE / HASH] [MASK]
 ```
 
-## インクリメンタル攻撃（Mode 3）
+### インクリメンタル攻撃（Mode 3）
 increment オプションで指定されたマスク形式の文字数に到達するまで、1文字ずつ増やして試行する。（'?l?l?l?l' であれば、アルファベット小文字を1文字ずつ増やしつつ、最大4文字まで試行する）  
 ```
 hashcat -a 3 -m [HASH TYPE] [HASHFILE / HASH] --increment [MASK]
+```
+
+## ポットファイルの確認
+一度クラックされたパスワードはポットファイルに保存される。そのため、2回目に同じパスワードをクラックしようとすると実行されない。
+```
+nano ~/.hashcat/hashcat.potfile
 ```
 
 ## Related Tools
@@ -44,12 +51,6 @@ Hashid
 - ハッシュファイルだけでなく、ハッシュを指定することも可能。
 ```
 hashid -m '[HASH]'
-```
-
-## ポットファイルの確認
-一度クラックされたパスワードはポットファイルに保存される。そのため、2回目に同じパスワードをクラックしようとすると実行されない。
-```
-nano ~/.hashcat/hashcat.potfile
 ```
 
 ## Memo
