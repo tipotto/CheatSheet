@@ -70,14 +70,14 @@ hashid -m '[HASH]'
 *1 ハッシュをそのまま指定する際は、ハッシュに $ や * などの特殊文字が含まれている場合、シェルに解釈されて意図しない挙動になってしまうことがあるため、シングルクウォーテーションで囲むようにする。  
 
 ## Reference
-Hashcat / Example Hashes:  
+Hashcat / Example Hashes :  
 https://hashcat.net/wiki/doku.php?id=example_hashes
 
-Hashcat / Attack Modes:  
+Hashcat / Attack Modes :  
 https://hashcat.net/wiki/
 
-fr33f0r4ll / Hashcat 使い方:  
+fr33f0r4ll / Hashcat 使い方 :  
 https://hiziriai.hatenablog.com/entry/2018/09/03/103116
 
-家studyをつづって / hashcatの使い方:  
+家studyをつづって / hashcatの使い方 :  
 https://www.iestudy.work/entry/2020/11/20/215526
