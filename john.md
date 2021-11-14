@@ -35,5 +35,5 @@ zip2john test.zip | cut -d ":" -f 2 | tee password.txt
 ```
 
 ## Memo
-*1 明示的にフォーマットを指定しなくても、自動的に判断してくれる。
+*1 John the Ripper は明示的にフォーマットを指定しなくても、自動的に判断してくれる。  
 *2 zip, 7z コマンドで作成した zip ファイルのパスワードハッシュは、$pkzip2$ で始まり、$/pkzip2$ で終わる。
