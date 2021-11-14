@@ -3,7 +3,7 @@ Hydra is a very fast online password cracking tool, which can perform rapid dict
 
 ## Normal
 ```
-hydra -l [USER] -P [WORDLIST] -vV [IP] [PROTOCOL] -t [NUM OF CONNS]
+hydra -l [USER] -P [WORDLIST] [IP] [PROTOCOL] -t [NUM OF CONNS] -vV
 ```
 
 - -l : Username
