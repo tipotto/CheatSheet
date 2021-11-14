@@ -13,20 +13,19 @@ john --list=formats | grep -iF [FORMAT]
 ### ssh2john
 python3で実行した場合、エラーが発生する。
 ```
-python /usr/share/john/ssh2john.py [KEY FILE PATH] > passphrase.txt
+python /usr/share/john/ssh2john.py [KEY FILE PATH] | tee passphrase.txt
 ```
 
 ### zip2john
 パスが通っているため、コマンドとして実行できる。
 ```
-zip2john [KEY FILE PATH] > password.txt
+zip2john [KEY FILE PATH] | tee password.txt
 ```
 
 zip や 7z コマンドで作成した zip ファイルの場合、出力されるパスワードハッシュに余計な文字列が含まれる。
 ```
 zip -e test.zip test.txt 
-zip2john test.zip > password.txt
-cat password.txt
+zip2john test.zip | tee password.txt
 test.zip/test.txt:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:test.txt:test.zip::test.zip
 ```
 
