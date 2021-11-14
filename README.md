@@ -1,17 +1,19 @@
 # CheatSheet
 
 ## Ports
-- 20, 21 / FTP
-- 22 / SSH
-- 23 / Telnet
-- 25 / SMTP
-- 53 / DNS
-- 80 / HTTP
-- 110 / POP3
-- 443 / HTTPS
-- 139, 445 / SMB
-- NFS / 2049
-- MySQL / 3306
+| Service | Port      |
+|:--------|:----------|
+| FTP     | 20 / 21   |
+| SSH     | 22        |
+| Telnet  | 23        |
+| SMTP    | 25        |
+| DNS     | 53        |
+| HTTP    | 80        |
+| POP3    | 110       |
+| HTTPS   | 443       |
+| SMB     | 139 / 445 |
+| NFS     | 2049      |
+| MySQL   | 3306      |
 
 ## Tools
 - [Rustscan](rustscan.md)
