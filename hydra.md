@@ -26,5 +26,6 @@ hydra -l [USER] -P [WORDLIST] [IP] http-post-form "[REQUEST PATH]:[REQUEST BODY]
 ```
 
 ## Memo
-REQUEST PATH : リクエストパスの先頭に/を付けないとエラーになる。  
-REQUEST BODY : ユーザー名、パスワードが入る箇所をそれぞれ、^USER^, ^PASS^というマジックパラメータに変更する。
+*1 REQUEST PATH では、リクエストパスの先頭に/を付けないとエラーになる。  
+*2 REQUEST BODY ではユーザー名、パスワードが入る箇所をそれぞれ、^USER^, ^PASS^ というマジックパラメータに変更する。  
+*3 もし指定したユーザーが存在しない場合、すぐに実行終了する。（詳細は Verbose モードで確認）  
