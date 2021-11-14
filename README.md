@@ -24,7 +24,7 @@
 - [John the Ripper](john.md)
 - [Hashcat](hashcat.md)
 
-## Exploit by protocol
+## Exploit by service
 - [SSH](ssh.md)
 - [SMB](smb.md)
 - [Telnet](telnet.md)
