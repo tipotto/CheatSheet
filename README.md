@@ -91,5 +91,8 @@ https://crackstation.net/
 Hash Analyzer  
 https://www.tunnelsup.com/hash-analyzer/
 
+CyberChef  
+https://gchq.github.io/CyberChef/
+
 Upgrading Simple Shells to Fully Interactive TTYs  
 https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/
