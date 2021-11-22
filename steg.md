@@ -22,7 +22,7 @@ steghide extract -sf [FILE]
 ### binwalk
 ファイル内に埋め込まれている別のファイルを抽出する
 ```
-binwalk -e [FILE]
+binwalk -e [FILE] -C [OUTPUT DIR]
 ```
 
 - -e : extract
@@ -31,7 +31,7 @@ binwalk -e [FILE]
 ファイルのヘッダやフッタ、内部データ構造に基づいてファイルを復元する。png にも対応。
 
 ```
-foremost [FILE]
+foremost -i [FILE] -o [OUTPUT DIR]
 ```
 
 ### strings
