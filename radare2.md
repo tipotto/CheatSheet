@@ -106,6 +106,16 @@ dr
 px [POSITION OF LOCAL VAL]
 ```
 
+一番左上の「6c」がローカル変数に格納されている値。値は16進数のため、6c = 108 となる。
+
+![スクリーンショット 2021-11-24 17 29 57](https://user-images.githubusercontent.com/39334151/143202326-0b989e4e-4cfc-445b-b457-23bb9ba5c8f1.png)
+
+### 定数
+
+定数は $ から始まり、16進数で表される。ここでは 0x14 = 20, 0x16 = 22 をそれぞれローカル変数 var_ch, car_8h に代入している。
+
+![スクリーンショット 2021-11-24 17 35 21](https://user-images.githubusercontent.com/39334151/143203106-0f571861-e05b-48ee-916e-69bc96c3475a.png)
+
 ## References
 
 10進数・16進数変換ツール  
