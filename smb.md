@@ -22,7 +22,7 @@ sudo nmap -sS -sV -O $rhost
 
 ## Enumeration
 ### Enum4Linux (*1 *2)
-Enum4linux is a tool used to enumerate SMB shares on both Windows and Linux systems. 
+SMB, Samba の情報を列挙するツールであり、Windows, Linux 両方に対応。しかし、Windows サーバーに対してはうまく動作しないことがある。その場合は smbclient を使う。
 ```
 enum4linux [OPTIONS] $rhost | tee [OUTPUT FILE]
 ```
@@ -35,6 +35,12 @@ enum4linux [OPTIONS] $rhost | tee [OUTPUT FILE]
 - -G : get group and member list
 - -A : all of the above (full basic enumeration)
 
+### SMBClient
+シェアを列挙するには L オプションを利用可能。しかし、匿名ログインできることが前提。
+```
+smbclient -L //${rhost} -p $rport
+```
+
 ## Exploitation
 ### SMBClient
 ```
@@ -45,6 +51,7 @@ smbclient //${rhost}/[SHARE] -U [NAME] -p $rport
 - -p [port] : to specify the port
 
 #### Basic commands
+- !dir : List files in current directory on local server
 - ls : List files and directories
 - cd : Change to a specified directory
 - more : Examine the contents of a text file
