@@ -22,6 +22,7 @@
 
 
 ## Instructions
+### Basic
 | mnemonic | instruction | meaning |
 |:------:|:------:|:------:|
 | lea | ```leaq src, dst``` | Sets dst to the address denoted by the expression in src |
@@ -32,7 +33,32 @@
 | sar | ```sarq src, dst``` | dst = dst >> src ( >> is the right bit shifting operator) |
 | xor | ```xorq src, dst``` | dst = dst XOR src |
 | and | ```andq src, dst``` | dst = dst & src |
-| or | ```orq src, dst``` | dst = dst | src |
+| or | ```orq src, dst``` | dst = dst \| src |
+
+
+### If
+| mnemonic | instruction | meaning |
+|:------:|:------:|:------:|
+| cmp | ```cmpq src2, src1``` | Compares src1 to src2 |
+
+
+### Jump
+| type | meaning |
+|:------:|:------:|
+| jmp   | Unconditional |
+| je | Equal / Zero |
+| jne | Not Equal / Not Zero |
+| js | Negative |
+| jns | Non-negative |
+| jg | Greater |
+| jge | Greater or Equal |
+| jl | Less |
+| jle | Less or Equal |
+| ja | Above (unsigned) |
+| jb | Below (unsigned) |
+
+* Signed Integers : Both positive and negative  
+* Unsigned Integers : Only positive
 
 
 ## Last letter of instruction
@@ -109,6 +135,14 @@ px [POSITION OF LOCAL VAL]
 一番左上の「6c」がローカル変数に格納されている値。値は16進数のため、6c = 108 となる。
 
 ![スクリーンショット 2021-11-24 17 29 57](https://user-images.githubusercontent.com/39334151/143202326-0b989e4e-4cfc-445b-b457-23bb9ba5c8f1.png)
+
+## Others
+### Cmp
+cmp はジャンプ命令の条件判定に利用される。この場合、var_4h に入っている値を $0x63 (10進数では 99) と比較し、99 以下の場合にジャンプ命令を実行する。
+```
+cmpl $0x63, var_4h
+jle 0x55b692d0e61c
+```
 
 ### 定数
 
