@@ -36,7 +36,7 @@ enum4linux [OPTIONS] $rhost | tee [OUTPUT FILE]
 - -A : all of the above (full basic enumeration)
 
 ### SMBClient
-シェアを列挙するには L オプションを利用可能。しかし、匿名ログインできることが前提。
+シェアを列挙するには L オプションを利用可能。しかし、使用できるユーザー名やパスワードがない場合、匿名ログインできることが前提となる。
 ```
 smbclient -L //${rhost} -p $rport
 ```
