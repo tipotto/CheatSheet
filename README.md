@@ -16,22 +16,22 @@
 | MySQL   | 3306      |
 
 ## Tools
-- [Rustscan](rustscan.md)
-- [Nmap](nmap.md)
-- [MSFVenom](msfvenom.md)
-- [Gobuster](gobuster.md)
-- [Hydra](hydra.md)
-- [John the Ripper](john.md)
-- [Hashcat](hashcat.md)
+- [Rustscan](tool/rustscan.md)
+- [Nmap](tool/nmap.md)
+- [MSFVenom](tool/msfvenom.md)
+- [Gobuster](tool/gobuster.md)
+- [Hydra](tool/hydra.md)
+- [John the Ripper](tool/john.md)
+- [Hashcat](tool/hashcat.md)
 
 ## Workflow by service
-- [SSH](ssh.md)
-- [SMB](smb.md)
-- [Telnet](telnet.md)
-- [NFS](nfs.md)
-- [FTP](ftp.md)
-- [SMTP](smtp.md)
-- [MySQL](mysql.md)
+- [SSH](service/ssh.md)
+- [SMB](service/smb.md)
+- [Telnet](service/telnet.md)
+- [NFS](service/nfs.md)
+- [FTP](service/ftp.md)
+- [SMTP](service/smtp.md)
+- [MySQL](service/mysql.md)
 
 ## Useful Commands
 ### Shell payload
@@ -66,8 +66,8 @@ export SHELL=bash; export TERM=xterm-256color; stty rows 60 columns 126
 ```
 
 ## CVEs
-- CVE : 2014-6287 ([39161](cve-2014-6287-39161.md))
-- CVE : 2014-6287 ([49125](cve-2014-6287-49125.md))
+- CVE : 2014-6287 ([39161](cve/cve-2014-6287-39161.md))
+- CVE : 2014-6287 ([49125](cve/cve-2014-6287-49125.md))
 
 
 ## Reference
