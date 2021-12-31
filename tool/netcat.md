@@ -1,5 +1,10 @@
 # Netcat
 
+## Syntax
+```
+nc [IP] [PORT]
+```
+
 ## Transfer file
 ### Sender
 ```
