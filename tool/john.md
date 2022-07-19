@@ -3,12 +3,15 @@
 ## Usage
 明示的にフォーマットを指定しなくても、自動的に判断してくれる。  
 ```
-john --format=[FORMAT] --wordlist=[WORDLIST PATH] [HASH FILE PATH]
+sudo john --format=[FORMAT] --wordlist=[WORDLIST PATH] [HASH FILE PATH]
+```
+```
+wordlist=xato-net-10-million-passwords-1000.txt; sudo john --format=[FORMAT] --wordlist=/usr/share/seclists/Passwords/$wordlist hash.txt
 ```
 
 ## Search Formats
 ```
-john --list=formats | grep -iF [FORMAT]
+sudo john --list=formats | grep -iF [FORMAT]
 ```
 
 ## Related Tools
