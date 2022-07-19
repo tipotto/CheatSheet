@@ -19,7 +19,13 @@
 ### 辞書式攻撃（Mode : 0）
 指定した辞書ファイルにある文字列を1つずつ試行する。
 ```
-hashcat -a 0 -m [HASH TYPE] [HASHFILE / HASH] [WORDLIST PATH]
+hashcat -a 0 -m [HASH TYPE] [HASHFILE/HASH] [WORDLIST PATH]
+```
+```
+wordlist=xato-net-10-million-passwords-1000.txt; hashcat -a 0 -m 0 hash.txt /usr/share/seclists/Passwords/$wordlist
+```
+```
+wordlist=xato-net-10-million-passwords-1000.txt; hashcat -a 0 -m 0 [HASH] /usr/share/seclists/Passwords/$wordlist
 ```
 
 ### ブルートフォース攻撃（Mode : 3）
