@@ -2,12 +2,9 @@
 
 ## dir
 ### command
-syntax:
 ```
 gobuster dir -u [URL] -w [WORDLIST PATH] -t [NUM OF THREADS] -x [EXTENSIONS] -o [OUTPUT FILE] -k -r -q
 ```
-
-example:
 ```
 wordlist=raft-small-words.txt; gobuster dir -u http://$rhost -w /usr/share/seclists/Discovery/Web-Content/$wordlist -t 100 -x php,txt -o gobuster/$wordlist.out -k -r -q
 ```
@@ -27,12 +24,9 @@ https://github.com/OJ/gobuster#dir-mode
 
 ## vhost
 ### command
-syntax:
 ```
 gobuster vhost -u [URL] -w [WORDLIST PATH] -t [NUM OF THREADS] -o [OUTPUT FILE] -k -r -q
 ```
-
-example:
 ```
 wordlist=subdomains-top1million-5000.txt; gobuster vhost -u http://$rhost -w /usr/share/seclists/Discovery/DNS/$wordlist -t 100 -o gobuster/$wordlist.out -k -r -q
 ```
