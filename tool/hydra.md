@@ -1,11 +1,30 @@
-# Hydra
-Hydra is a very fast online password cracking tool, which can perform rapid dictionary attacks against more than 50 Protocols, including Telnet, RDP, SSH, FTP, HTTP, HTTPS, SMB, several databases and much more.   
-
-## Normal
+# [Hydra](https://hydra.cc/docs/intro/)
+## command
+normal:
 ```
-hydra -l [USER] -P [WORDLIST] [IP] [PROTOCOL] -t [NUM OF CONNS] -vV
+hydra -l [USER] -P [WORDLIST] [IP] [PROTOCOL] -t [NUM OF CONNS]
+```
+```
+wordlist=xato-net-10-million-passwords-1000.txt; hydra -l [USER] -P /usr/share/seclists/Passwords/$wordlist $rhost http -t 100
 ```
 
+basic authentication:
+```
+hydra -l [USER] -P [WORDLIST] [IP] http-get [REQUEST PATH]
+```
+```
+wordlist=xato-net-10-million-passwords-1000.txt; hydra -l [USER] -P /usr/share/seclists/Passwords/$wordlist $rhost http-get "[REQUEST PATH]"
+```
+
+post form:
+```
+hydra -l [USER] -P [WORDLIST] [IP] http-post-form "[REQUEST PATH]:[REQUEST BODY]:[ERROR MESSAGE]"
+```
+```
+wordlist=xato-net-10-million-passwords-1000.txt; hydra -l [USER] -P /usr/share/seclists/Passwords/$wordlist $rhost http-post-form "[REQUEST PATH]:[REQUEST BODY]:[ERROR MESSAGE]"
+```
+
+## options
 - -l : Username
 - -L : Userlist path
 - -p : Password
@@ -16,17 +35,12 @@ hydra -l [USER] -P [WORDLIST] [IP] [PROTOCOL] -t [NUM OF CONNS] -vV
 - -w : defines the max wait time in seconds for responses (default: 32)
 - -vV : Sets verbose mode to very verbose, shows the login+pass combination for each attempt
 
-## Basic Authentication
+## wordlist
 ```
-hydra -l [USER] -P [WORDLIST] [IP] http-get [REQUEST PATH]
-```
-
-## Post Form
-```
-hydra -l [USER] -P [WORDLIST] [IP] http-post-form "[REQUEST PATH]:[REQUEST BODY]:[ERROR MESSAGE]"
+/usr/share/seclists/Passwords/
 ```
 
-## Memo
+## memo
 *1 REQUEST PATH では、リクエストパスの先頭に/を付けないとエラーになる。  
 *2 REQUEST BODY ではユーザー名、パスワードが入る箇所をそれぞれ、^USER^, ^PASS^ というマジックパラメータに変更する。  
 *3 もし指定したユーザーが存在しない場合、すぐに実行終了する。（詳細は Verbose モードで確認）  
